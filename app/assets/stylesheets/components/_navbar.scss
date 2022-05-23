@@ -11,7 +11,7 @@
   width: 40px;
 }
 
-.navbar-brand > p {
+#logo {
   color: white;
   opacity: 1;
   font-size: 38px;
@@ -19,9 +19,11 @@
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 500;
   margin-left: 20px;
+  margin-top: 15px;
 }
 
 
 .navbar-nav.me-auto > li {
   margin-right: 20px;
+  margin-top: 15px;
 }
