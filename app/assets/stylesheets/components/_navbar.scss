@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,21 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#logo {
+  color: white;
+  opacity: 1;
+  font-size: 38px;
+  letter-spacing: 7px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+
+.navbar-nav.me-auto > li {
+  margin-right: 20px;
+  margin-top: 15px;
 }

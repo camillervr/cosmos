@@ -8,9 +8,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;1,200;1,400&family=Open+Sans:wght@300;400&display=swap');
+    </style>
   </head>
 
   <body>
+
+    <%= render "devise/shared/navbar" %>
+
+    <%= render "devise/shared/flashes" %>
+
     <%= yield %>
   </body>
 </html>
