@@ -48,7 +48,8 @@ planets["bodies"].first(40).each do |planet|
     radius: planet["meanRadius"],
     around_planet: planet["aroundPlanet"],
     moons: planet["moons"],
-    surface_area: planet["dimension"]
+    surface_area: planet["dimension"],
+    price_per_day: rand(100..300)
   )
   cosmic_objects.user = fantastic_four.sample
   cosmic_objects.save!

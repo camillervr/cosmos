@@ -1,30 +1,33 @@
-<div class="index">
-  <% @planets.each do |planet| %>
-    <%= link_to planet.name, planet_path(planet) %>
-  <% end %>
+<div id="4col">
+  <div class="planet-cards container">
+    <h1 class="mb-5 text-white">Planets around the galaxy</h1>
+    <div class="row">
 
-    <div id="4col">
-    <div class="container">
-      <h2 class="mb-3 text-white">Planets around the galaxy</h2>
-      <div class="row">
-        <div class="col-6 col-md-3">
-          <div class= "planet-card">
-            <img src="../assets/mars" class="w-100 mb-2" alt="">
-            <div class="planet-card-info">
-              <div class="color-text">ENTIRE PLANET · XXX</div>
-              <div class="place-name">Mars</div>
-              <div class="price">€300 per day</div>
-              <div class="rating">
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
+      <% @planets.first(9).each do |planet| %>
+        <div class="col-12 col-sm-6 col-md-4 col-mb-3">
+          <%= link_to planet_path(planet), class:"text-decoration-none" do %>
+            <div class= "planet-card">
+              <img src="../assets/mars" class="w-100" alt="">
+              <div class="planet-card-info">
+                <div class="d-flex justify-content-between">
+                  <h3><%= planet.name %></h3>
+                  <p class="rating">4.5
+                    <i class="fa fa-star checked"></i>
+                  </p>
+                </div>
+                <div class="planet-card-object d-flex justify-content-between">
+                  <%= planet.object.upcase %>
+                  <div class="price"><strong><%= planet.price_per_day %></strong> / day
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
-      </div>
+      <% end %>
+
+
+
     </div>
   </div>
 </div>
