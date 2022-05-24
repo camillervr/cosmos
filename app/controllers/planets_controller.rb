@@ -6,8 +6,8 @@ class PlanetsController < ApplicationController
   end
 
   def show
-    authorize @planet
     @planet = Planet.find(params[:id])
+    authorize @planet
   end
 
   def new
