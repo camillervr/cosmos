@@ -5,4 +5,5 @@ class Planet < ApplicationRecord
 
   validates :name, presence: true
   validates :object, inclusion: { in: Planet::OBJECT }, presence: true
+  validates :price_per_day, presence: true
 end
