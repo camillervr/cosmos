@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -36,4 +38,12 @@
   border: 1px solid white;
   border-radius: 2px;
   padding: 4px 12px;
+}
+
+.search-bar {
+  border: 1px solid #4A4A4A;
+  padding: 4px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  margin-top: 25px;
 }

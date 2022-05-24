@@ -1,3 +1,32 @@
+<div class= "planet-types">
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-star"></i></h4>
+    <p>Star</p>
+  </div>
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-earth-asia"></i></h4>
+    <p>Planet</p>
+  </div>
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-baby"></i></h4>
+    <p>Dwarf Planet</p>
+  </div>
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-meteor"></i></h4>
+    <p>Asteroid</p>
+  </div>
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-icicles"></i></h4>
+    <p>Comet</p>
+  </div>
+  <div class="planet-type text-center">
+    <h4><i class="fa-solid fa-moon"></i></h4>
+    <p>Moon</p>
+  </div>
+</div>
+
+
+
 <div id="4col">
   <div class="planet-cards container">
     <h1 class="mb-5 text-white">Planets around the galaxy</h1>
@@ -7,7 +36,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-mb-3">
           <%= link_to planet_path(planet), class:"text-decoration-none" do %>
             <div class= "planet-card">
-              <img src="../assets/mars" class="w-100" alt="">
+              <img src="../assets/mars" class="image w-100" alt="">
               <div class="planet-card-info">
                 <div class="d-flex justify-content-between">
                   <h3><%= planet.name %></h3>
@@ -17,7 +46,7 @@
                 </div>
                 <div class="planet-card-object d-flex justify-content-between">
                   <%= planet.object.upcase %>
-                  <div class="price"><strong><%= planet.price_per_day %></strong> / day
+                  <div class="price"><strong>€ <%= planet.price_per_day %></strong> / day
                   </div>
                 </div>
               </div>
@@ -25,8 +54,6 @@
           <% end %>
         </div>
       <% end %>
-
-
 
     </div>
   </div>
