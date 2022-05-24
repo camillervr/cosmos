@@ -2,13 +2,13 @@
 @import "home";
 
 .planet-types {
-  margin-top: 80px;
+  margin-top: 70px;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid rgba(250,250,250,0.2);
   border-bottom: 1px solid rgba(250,250,250,0.2);
   position: sticky;
-  top: 0;
+  top: 110px;
 }
 
 .planet-type {
