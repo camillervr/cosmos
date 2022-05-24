@@ -11,10 +11,9 @@
   border-radius: 0px 0px 4px 4px ;
 }
 
-.planet-card-info {
-  background-color: rgba(32,47,66,0.3);
+.image:hover {
+  opacity: 0.8;
 }
-
 
 .planet-card {
   margin-bottom: 40px ;
@@ -33,7 +32,7 @@
   line-height: 18px;
   color: white;
   background-color: rgba(32,47,66,1);
-  padding: 4px 15px;
+  padding: 8px 16px;
   border-radius: 4px;
 }
 
