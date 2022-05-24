@@ -1,0 +1,14 @@
+<%= simple_form_for(planet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :object, collection: Planet::OBJECT %>
+  <%= f.input :temperature %>
+  <%= f.input :orbital_period %>
+  <%= f.input :radius %>
+  <%= f.input :around_planet %>
+  <%= f.input :moons %>
+  <%= f.input :surface_area %>
+  <%= f.input :price_per_day %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-primary' %>
+<% end %>
