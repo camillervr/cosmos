@@ -1,2 +1,69 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+h2 {
+  font-weight: 800 ;
+    margin-bottom: 0px ;
+    font-size: 25px ;
+    line-height: 30px ;
+    letter-spacing: normal ;
+    padding-top: 2px ;
+    padding-bottom: 2px ;
+    color: rgb(72, 72, 72) ;
+}
+
+.color-text {
+  color: #ED8F0A;
+  font-size:12px;
+  font-weight:700;
+  line-height:16px;
+  text-transform:uppercase;
+}
+
+.planet-card-info {
+  background-color: rgba(32,47,66,0.5);
+  padding: 4px;
+  border-radius: 4px;
+
+}
+
+.place-name {
+  color: white;
+  font-size:16px;
+  line-height:22px;
+  font-weight:700;
+
+}
+
+.price {
+  font-size:14px;
+  line-height:18px;
+  color: white;
+}
+
+img {
+/*   width:100%; */
+  border-radius:3px;
+}
+
+span {
+  display:block;
+}
+
+.checked {
+  color: #ed8e0a7b ;
+  font-size:9px;
+}
+.text-desc {
+  font-size:14px;
+}
+
+.text-color {
+  color:rgb(255, 180, 0);
+  font-size:12px;
+}
+
+.rating {
+  font-size:12px;
+}
