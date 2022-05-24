@@ -57,7 +57,11 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 
+# Use devise for authentification
 gem "devise"
+
+# Use pundit for authorization
+gem "pundit"
 
 
 group :development, :test do
