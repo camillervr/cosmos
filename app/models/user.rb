@@ -7,8 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: true
-<<<<<<< HEAD
-=======
   # validates :first_name, presence: true
   # validates :last_name, presence: true
   # validates :date_of_birth, presence: true
@@ -16,5 +14,4 @@ class User < ApplicationRecord
   # validates :city, presence: true
   # validates :spirit_animal, presence: true
   # validates :astro_sign, presence: true
->>>>>>> master
 end
