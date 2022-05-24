@@ -9,5 +9,6 @@
   <%= f.input :surface_area %>
   <%= f.input :price_per_day %>
   <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-primary' %>
 <% end %>

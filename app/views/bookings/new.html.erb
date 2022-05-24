@@ -1,0 +1,12 @@
+<h1>Your cosmos booking</h1>
+<br>
+<%= simple_form_for [@planet, @booking] do |f| %>
+    <div class="modal-body">
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Back</button>
+    </div>
+  <% end %>
