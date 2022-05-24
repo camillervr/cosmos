@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
 }
 
@@ -40,10 +41,20 @@
   padding: 4px 12px;
 }
 
+.search {
+  position: relative;
+}
+
 .search-bar {
-  border: 1px solid #4A4A4A;
+  border: 1px solid white;
   padding: 4px 24px;
   border-radius: 50px;
   font-weight: lighter;
   margin-top: 25px;
+}
+
+.search > a {
+  position: absolute;
+  right: 15px;
+  top: 30px;
 }
