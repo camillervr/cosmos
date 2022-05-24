@@ -56,6 +56,12 @@
     </div>
   </div>
 
+  <% if @planet.photo.key.nil? %>
+  <%= cl_image_tag asset_path('mars.jpg'), height: 300, width: 400, crop: :fill %>
+  <%else %>
+  <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 
   <!-- <%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %> -->
 </div>
