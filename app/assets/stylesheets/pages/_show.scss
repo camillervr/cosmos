@@ -8,6 +8,7 @@
 .planet-info > img {
   width: 900px;
   height: 500px;
+  z-index: 200;
 }
 
 .planet-info-tech > h3 {
@@ -15,18 +16,13 @@
   margin-top: 20px
 }
 
-.planet-info-resa {
-  padding: 30px;
-  position: sticky;
-  top: 0;
-}
-
-.planet-info-resa-price {
+.planet-resa-price {
   margin-bottom: 40px;
 }
 
-.planet-info-resa-description {
+.planet-info-description {
   padding: 30px 0px;
+
 }
 
 .btn-book {
@@ -44,6 +40,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.planet-info-resa-button {
+.planet-resa {
   padding: 20px;
+  position: sticky;
+  top: 90px;
+  min-width: 350px;
+  height: 450px;
 }

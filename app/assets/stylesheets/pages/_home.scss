@@ -52,17 +52,28 @@ $asteroids-belt-orb : 300px; $asteroids-belt-pl: 210px;
   box-sizing:border-box;
 }
 
-html, body{
-  height:100%;
-  width:100%;
-}
+// html, body{
+//   height:100%;
+//   width:100%;
+// }
 
 body{
   font:normal 1em/1.45em "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color:#fff;
+}
+
+.stars-background {
   background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
   background-attachment:fixed;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   &:after{
     content:"";
     position:absolute;
@@ -414,4 +425,8 @@ code{
   to{
     transform:rotate(-360deg)
   }
+}
+
+.bg-dark-opacity-10 {
+  background-color: rgba(0, 0, 0, 0.2);
 }
