@@ -1,5 +1,5 @@
 <h1><%=@planet.name %></h1>
-<h3><%=@planet.type%></h3>
+<h3><%=@planet.object%></h3>
 <h3><%=@planet.temperature%></h3>
 <h3><%=@planet.orbital_period%></h3>
 <h3><%=@planet.radius%></h3>
@@ -7,8 +7,11 @@
 <h3><%=@planet.moons%></h3>
 <h3><%=@planet.surface_area%></h3>
 <h3><%=@planet.price_per_day%></h3>
-
 <p><%=@planet.description%></p>
 
-
+<% if @planet.photo.key.nil? %>
+  <%= cl_image_tag asset_path('mars.jpg'), height: 300, width: 400, crop: :fill %>
+  <%else %>
+  <%= cl_image_tag @planet.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %>
