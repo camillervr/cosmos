@@ -58,11 +58,21 @@ html, body{
 }
 
 body{
-  font:normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:normal 1em/1.45em "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color:#fff;
   background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
   background-attachment:fixed;
+  &:after{
+    content:"";
+    position:absolute;
+    height:2px;
+    width:2px;
+    top:-2px;
+    background:white;
+    box-shadow: stars(500, 1800);
+    border-radius:100px;
+  }
 }
 
 h1{
@@ -123,7 +133,6 @@ a, a:visited{
     opacity: 0.7;
     color: white;
     letter-spacing: 1.5px;
-    font-family: 'Open Sans', sans-serif;
     & + p{
       margin-top:20px;
     }

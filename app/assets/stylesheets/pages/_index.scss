@@ -1,50 +1,31 @@
 // Import page-specific CSS files here.
 @import "home";
 
-
-h2 {
-  font-weight: 800 ;
-    margin-bottom: 0px ;
-    font-size: 25px ;
-    line-height: 30px ;
-    letter-spacing: normal ;
-    padding-top: 2px ;
-    padding-bottom: 2px ;
-    color: rgb(72, 72, 72) ;
-}
-
-.color-text {
-  color: #ED8F0A;
-  font-size:12px;
-  font-weight:700;
-  line-height:16px;
-  text-transform:uppercase;
+.planet-cards.container {
+  margin-top: 80px;
 }
 
 .planet-card-info {
   background-color: rgba(32,47,66,0.5);
-  padding: 4px;
-  border-radius: 4px;
-
+  padding: 15px;
+  border-radius: 0px 0px 4px 4px ;
 }
 
-.place-name {
-  color: white;
-  font-size:16px;
-  line-height:22px;
-  font-weight:700;
-
+.planet-card-object {
+  color: rgba(250,250,250,0.7)
 }
 
 .price {
-  font-size:14px;
-  line-height:18px;
+  font-size: 14px;
+  line-height: 18px;
   color: white;
+  background-color: rgba(32,47,66,1);
+  padding: 4px 15px;
+  border-radius: 4px;
 }
 
 img {
-/*   width:100%; */
-  border-radius:3px;
+  border-radius: 4px 4px 0px 0px;
 }
 
 span {
@@ -52,18 +33,11 @@ span {
 }
 
 .checked {
-  color: #ed8e0a7b ;
-  font-size:9px;
-}
-.text-desc {
-  font-size:14px;
+  color: #ED8F0A ;
+  font-size: 12px;
 }
 
-.text-color {
-  color:rgb(255, 180, 0);
-  font-size:12px;
-}
 
 .rating {
-  font-size:12px;
+  font-size: 14px;
 }
