@@ -20,10 +20,20 @@
   font-weight: 500;
   margin-left: 20px;
   margin-top: 15px;
+  padding-left: 40px;
+  background-image: url('../assets/logo');
+  background-size: 27px;
+  background-repeat: no-repeat;
 }
 
 
 .navbar-nav.me-auto > li {
   margin-right: 20px;
   margin-top: 15px;
+}
+
+.btn-log-in {
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 4px 12px;
 }
