@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_091611) do
     t.string "city"
     t.string "spirit_animal"
     t.string "astro_sign"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

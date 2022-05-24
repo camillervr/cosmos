@@ -9,3 +9,6 @@
 <h3><%=@planet.price_per_day%></h3>
 
 <p><%=@planet.description%></p>
+
+
+<%= button_to "Destroy this planet", @planet, method: :delete if policy(@planet).destroy? %>

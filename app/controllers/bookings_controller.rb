@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
 
   def new
-
     @booking = Booking.new
+    authorize @booking
   end
 
   # def total_price
@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.planet = @planet
     @booking.user = current_user
+    authorize @booking
     if @booking.save
 
     else
