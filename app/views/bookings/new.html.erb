@@ -1,7 +1,9 @@
-<h1>Your cosmos booking</h1>
-<br>
-<%= simple_form_for [@planet, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Fly me to the moon", class: 'btn btn-primary' %>
-  <% end %>
+<div class="container">
+  <h1>Your cosmos booking</h1>
+  <br>
+  <%= simple_form_for [@planet, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Fly me to the moon", class: 'btn-book-new' %>
+    <% end %>
+</div>

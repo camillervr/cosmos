@@ -1,8 +1,18 @@
+
 .navbar-lewagon {
+  background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
+  background-attachment:fixed;
   justify-content: space-between;
-  background: transparent;
   position: sticky;
   top: 0;
+  padding-bottom: 35px;
+  // height: 100%;
+  // z-index: -100;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
