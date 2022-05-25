@@ -5,8 +5,6 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-
-
   def create
     @user = current_user
     @planet = Planet.find(params[:planet_id])
