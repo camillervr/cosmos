@@ -57,7 +57,8 @@ class PlanetsController < ApplicationController
       :price_per_day,
       :description,
       :object,
-      :photo
+      :photo,
+      :discovery_date
     )
   end
 end
