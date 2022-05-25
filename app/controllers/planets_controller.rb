@@ -10,6 +10,11 @@ class PlanetsController < ApplicationController
     authorize @planet
   end
 
+  def filter
+    @planet = Planet.where(params[:object])
+    authorize @planet
+  end
+
   def new
     @planet = Planet.new
     authorize @planet
