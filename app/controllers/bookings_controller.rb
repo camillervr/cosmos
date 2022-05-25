@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.planet = @planet
     @booking.total_price = total_price(@planet)
     @booking.user = @user
-    @booking.status = "Pending"
+    @booking.status = "Space Mission Pending"
     authorize @booking
     if @booking.save
       redirect_to dashboard_path
