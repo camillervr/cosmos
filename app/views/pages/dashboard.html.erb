@@ -7,11 +7,11 @@
 
       <% @user.bookings.each do |my_booked_planet| %>
         <div class="card-product">
-          <% if my_booked_planet.planet.photo.key.nil? %>
-                <%= image_tag 'mars.jpg', class: 'w-100 image' %>
-              <%else %>
-                <%= cl_image_tag planet.photo.key, crop: :fill, class: 'w-100 image' %>
-              <% end %>
+            <% if my_booked_planet.planet.photo.key.nil? %>
+              <%= image_tag 'mars.jpg' %>
+            <%else %>
+              <%= cl_image_tag my_planet.photo.key, crop: :fill %>
+            <% end %>
           <div class="card-product-infos">
             <h2> <%= my_booked_planet.planet.name %></h2>
             <p> <%= my_booked_planet.planet.object %> hosted by planet owner only.</p>
@@ -38,7 +38,11 @@
           <% @my_planets.each do |my_planet| %>
           <div class="col-6">
             <div class="card-planet">
-            <img src="../assets/mars" />
+              <% if my_planet.photo.key.nil? %>
+                  <%= image_tag 'mars.jpg' %>
+              <%else %>
+                  <%= cl_image_tag my_planet.photo.key, crop: :fill %>
+              <% end %>
             <div class="card-planet-infos">
               <h2> <%= my_planet.name %></h2>
               <p> Status: Reserved</p>
