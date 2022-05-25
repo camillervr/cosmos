@@ -1,1 +1,52 @@
-<h1> cosmos Dashboard </h1>
+<div class="container">
+  <h1 class="mb-4"><%= @user.first_name %>'s Dashboard </h1>
+
+  <div class="row">
+  <div class="col-6">
+    <h3>My Upcoming Reservations</h3>
+
+      <% @user.bookings.each do |my_booked_planet| %>
+        <div class="card-product">
+          <img src="../assets/mars" />
+          <div class="card-product-infos">
+            <h2> <%= my_booked_planet.planet.name %></h2>
+            <p> <%= my_booked_planet.planet.object %> hosted by planet owner only.</p>
+            <p><%= my_booked_planet.start_date %> - <%= my_booked_planet.end_date %> </p>
+            <% if my_booked_planet.status == "Space Mission Pending" %>
+              <p class="pending">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+            <% else %>
+              <p class="confirmed">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+            <% end %>
+            <%# <p>Status: <i class="fa-solid fa-circle"></i> Pending </p> %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  <div class="col-6">
+    <div class="d-flex justify-content-between align-self-start">
+    <h3>My Planets</h3>
+    <%= link_to "Add New Planet", planets_path, class:"btn-new-planet" %>
+    </div>
+      <div class="cards-planets mt-4">
+      <div class="row">
+          <% @my_planets.each do |my_planet| %>
+          <div class="col-6">
+            <div class="card-planet">
+            <img src="../assets/mars" />
+            <div class="card-planet-infos">
+              <h2> <%= my_planet.name %></h2>
+              <p> Status: Reserved</p>
+              <p class="rating"><i class="fa fa-star checked"></i> 4.5</p>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    </div>
+
+
+  </div>
+  </div>
+</div>

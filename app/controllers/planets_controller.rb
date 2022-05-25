@@ -1,13 +1,21 @@
 class PlanetsController < ApplicationController
   # before_action :set_list, only: [:show, :destroy]
   def index
-    @planet = policy_scope(Planet)
-    @planets = Planet.all
+    if params[:query].present?
+      @planets = policy_scope(Planet).where(object: params[:query])
+    else
+      @planets = policy_scope(Planet)
+    end
   end
 
   def show
     @planet = Planet.find(params[:id])
     @booking = Booking.new
+    authorize @planet
+  end
+
+  def filter
+    @planet = Planet.where(params[:object])
     authorize @planet
   end
 
