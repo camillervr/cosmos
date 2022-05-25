@@ -30,11 +30,15 @@
     <h1 class="mb-5 text-white">Planets around the galaxy</h1>
     <div class="row">
 
-      <% @planets.first(9).each do |planet| %>
+      <% @planets.last(6).each do |planet| %>
         <div class="col-12 col-sm-6 col-md-4 col-mb-3">
           <%= link_to planet_path(planet), class:"text-decoration-none" do %>
             <div class= "planet-card">
-              <img src="../assets/mars" class="image w-100" alt="">
+              <% if planet.photo.key.nil? %>
+                <%= image_tag 'mars.jpg', class: 'w-100 image' %>
+              <%else %>
+                <%= cl_image_tag planet.photo.key, crop: :fill, class: 'w-100 image' %>
+              <% end %>
               <div class="planet-card-info">
                 <div class="d-flex justify-content-between">
                   <h3><%= planet.name %></h3>

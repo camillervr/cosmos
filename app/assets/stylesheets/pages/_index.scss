@@ -25,6 +25,11 @@
   border-radius: 0px 0px 4px 4px ;
 }
 
+.image {
+  height: 200px;
+  object-fit: cover;
+}
+
 .image:hover {
   opacity: 0.8;
 }
