@@ -1,9 +1,9 @@
 <div class="container">
-  <h1><%= @user.first_name %>'s Dashboard </h1>
+  <h1 class="mb-4"><%= @user.first_name %>'s Dashboard </h1>
 
   <div class="row">
   <div class="col-6">
-    <h3>Upcoming Reservations</h3>
+    <h3>My Upcoming Reservations</h3>
 
       <% @my_booked_planets.each do |my_booked_planet| %>
         <div class="card-product">
@@ -12,6 +12,8 @@
             <h2> <%= my_booked_planet.name %></h2>
             <p> <%= my_booked_planet.object %> hosted by planet owner only.</p>
             <p>19/20 - 20/20 </p>
+            <p>Status: <i class="fa-solid fa-circle"></i> Confirmed </p>
+            <%# <p>Status: <i class="fa-solid fa-circle"></i> Pending </p> %>
           </div>
         </div>
       <% end %>
@@ -19,7 +21,10 @@
     </div>
 
   <div class="col-6">
+    <div class="d-flex justify-content-between align-self-start">
     <h3>My Planets</h3>
+    <%= link_to "Add New Planet", planets_path, class:"btn-new-planet" %>
+    </div>
       <div class="cards-planets mt-4">
       <div class="row">
           <% @my_planets.each do |my_planet| %>

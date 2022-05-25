@@ -6,6 +6,8 @@
   position: sticky;
   top: 0;
   padding-bottom: 35px;
+  z-index:10;
+
   // height: 100%;
   // z-index: -100;
   // position: fixed;
@@ -66,4 +68,10 @@
   position: absolute;
   right: 15px;
   top: 30px;
+}
+
+.dropdown-menu {
+  background: #0C1017;
+  opacity: 0.8;
+
 }
