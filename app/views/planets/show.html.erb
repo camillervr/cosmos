@@ -45,7 +45,13 @@
       </div>
 
       <%# <a href="#" class="btn-book">Book this planet</a> %>
-      <%= link_to "Book this planet", new_planet_booking_path(@planet), class:"btn-book" %>
+
+      <%= render "bookings/form", planet: @planet, booking: @booking  %>
+
+      <div class="d-flex bd-highlight">
+        <p class="pt-3 flex-grow-1 bd-highlight">Priceperday x period</p>
+        <p class="pt-3 bd-highlight">... €</p>
+      </div>
 
       <div class="d-flex bd-highlight">
         <p class="pt-3 flex-grow-1 bd-highlight">Cleaning fees</p>

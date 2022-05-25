@@ -7,6 +7,7 @@ class PlanetsController < ApplicationController
 
   def show
     @planet = Planet.find(params[:id])
+    @booking = Booking.new
     authorize @planet
   end
 
