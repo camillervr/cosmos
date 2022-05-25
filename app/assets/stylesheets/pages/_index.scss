@@ -2,18 +2,25 @@
 @import "home";
 
 .planet-types {
-  margin-top: 70px;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid rgba(250,250,250,0.2);
   border-bottom: 1px solid rgba(250,250,250,0.2);
   position: sticky;
-  top: 110px;
+  top: 100px;
+  background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
+  background-attachment:fixed;
 }
 
 .planet-type {
   padding-top: 15px;
 }
+
+.planet-type:hover {
+  opacity: 0.5;
+  color: white;
+}
+
 
 .planet-cards.container {
   margin-top: 80px;
@@ -66,6 +73,7 @@ img {
 .checked {
   color: #ED8F0A ;
   font-size: 12px;
+  opacity: 1;
 }
 
 

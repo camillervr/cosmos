@@ -1,5 +1,6 @@
 <%= simple_form_for [planet, booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_date, label: "Check-in" %>
+        <%= f.input :end_date, label: "Check-out" %>
+        <%= f.input :guests, collection: (1..5) %>
         <%= f.submit "Fly me to the moon", class:"btn-book" %>
   <% end %>

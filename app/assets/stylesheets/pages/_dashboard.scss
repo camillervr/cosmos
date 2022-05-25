@@ -1,0 +1,99 @@
+.card-product {
+  margin-top: 40px;
+  overflow: hidden;
+  height: 120px;
+  background: #192331;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  text-align: left;
+  border-radius: 0px;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+// ------------- RIGHT HAND SIDE OF PAGE -------------
+
+.card-planet {
+  overflow: hidden;
+  height: 90px;
+  // background: #192331;
+  display: flex;
+  align-items: center;
+}
+
+.card-planet img {
+  width: 100px;
+  width: 100px;
+  object-fit: cover;
+  text-align: left;
+  border-radius: 4px;
+
+}
+
+.card-planet h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-planet p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.card-planet .card-planet-infos {
+  padding: 16px;
+}
+
+.pending i {
+  color: orange;
+  font-size: 9px;
+}
+
+.confirmed i {
+  color: #51EE6B;
+  font-size: 9px;
+}
+
+.btn-new-planet {
+  color: white;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 8px 8px;
+  border-radius: 4px;
+  background: #192331;
+  transition: 0.3s ease;
+  font-size:14px;
+  letter-spacing: 1.5px;
+  font-family: 'Open Sans', sans-serif;
+  width: 150px;
+  margin-right: 100px;
+}

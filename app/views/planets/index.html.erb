@@ -1,31 +1,31 @@
 <div class= "planet-types">
-  <div class="planet-type text-center">
+  <%= link_to planets_path(query:"Star"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-star"></i></h4>
     <p>Star</p>
-  </div>
-  <div class="planet-type text-center">
+  <% end %>
+  <%= link_to planets_path(query:"Planet"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-earth-asia"></i></h4>
     <p>Planet</p>
-  </div>
-  <div class="planet-type text-center">
+  <% end %>
+  <%= link_to planets_path(query:"Dwarf Planet"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-baby"></i></h4>
     <p>Dwarf Planet</p>
-  </div>
-  <div class="planet-type text-center">
+  <% end %>
+  <%= link_to planets_path(query:"Asteroid"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-meteor"></i></h4>
     <p>Asteroid</p>
-  </div>
-  <div class="planet-type text-center">
+  <% end %>
+  <%= link_to planets_path(query:"Comet"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-icicles"></i></h4>
     <p>Comet</p>
-  </div>
-  <div class="planet-type text-center">
+  <% end %>
+  <%= link_to planets_path(query:"Moon"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-moon"></i></h4>
     <p>Moon</p>
-  </div>
+  <% end %>
 </div>
 
-<div id="4col">
+<div id="col">
   <div class="planet-cards container">
     <h1 class="mb-5 text-white">Planets around the galaxy</h1>
     <div class="row">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="planet-card-object d-flex justify-content-between">
                   <%= planet.object.upcase %>
-                  <div class="price"><strong>€ <%= planet.price_per_day %></strong> / day
+                  <div class="price"><strong><%= planet.price_per_day %> €</strong> / day
                   </div>
                 </div>
               </div>

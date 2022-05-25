@@ -14,13 +14,13 @@
       </div>
 
       <div class="planet-info-description">
-        <h3>About this planet</h3>
+        <h3>About This Planet</h3>
         <hr>
         <%= @planet.description %><!-- A SUPPRIMER : --><p>Le nom donné à ce satellite est celui de Phobos, un personnage de la mythologie grecque. Phobos et Déimos sont les jumeaux que le dieu Arès (Mars pour les Romains) eut de la déesse Aphrodite (Vénus pour les Romains).</p>
       </div>
 
       <div class="planet-info-tech">
-        <h3>Technical informations</h3>
+        <h3>Technical Informations</h3>
         <hr>
         <p><i class="fa-solid fa-sitemap"></i> Type of planet: <%= @planet.object %></p>
         <p><i class="fa-solid fa-temperature-half"></i> Temperature: <%= @planet.temperature %><!-- A SUPPRIMER : -->32°C</p>
@@ -39,13 +39,11 @@
         <p><strong><%= @planet.price_per_day %> €</strong> / day</p>
 
         <div class="planet-resa-price-rating d-flex justify-content-between">
-          <p>4.5</p>
-          <i class="fa fa-star checked"></i>
+          <p><i class="fa fa-star checked"></i> 4.5</p>
+
         </div>
 
       </div>
-
-      <%# <a href="#" class="btn-book">Book this planet</a> %>
 
       <%= render "bookings/form", planet: @planet, booking: @booking  %>
 
