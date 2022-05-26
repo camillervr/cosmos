@@ -7,4 +7,11 @@ class Planet < ApplicationRecord
   validates :name, presence: true
   validates :object, inclusion: { in: Planet::OBJECT }, presence: true
   validates :price_per_day, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+  against: [ :name ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

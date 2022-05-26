@@ -5,7 +5,13 @@
       <%= link_to "cosmos.", root_path, id: "logo" %>
 
       <div class="search">
-        <input type="text" value="" placeholder="Fly me to the moon..." class="search-bar bg-transparent text-white">
+        <%= form_tag planets_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :search,
+            params[:search],
+            class: "search-bar bg-transparent text-white",
+            placeholder: "Fly me to the moon..."
+          %>
+        <% end %>
         <a><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
 
