@@ -5,7 +5,13 @@
       <%= link_to "cosmos.", root_path, id: "logo" %>
 
       <div class="search">
-        <input type="text" value="" placeholder="Fly me to the moon..." class="search-bar bg-transparent text-white">
+        <%= form_tag planets_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :search,
+            params[:search],
+            class: "search-bar bg-transparent text-white",
+            placeholder: "Fly me to the moon..."
+          %>
+        <% end %>
         <a><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
 
@@ -13,7 +19,6 @@
         <ul class="navbar-nav me-auto">
             <li class="nav list-inline">
               <a class="nav-link text-white list-inline-item" href="#"><i class="fa-solid fa-bell"></i></a>
-              <a class="nav-link text-white list-inline-item" href="#"><i class="fa-solid fa-inbox"></i></a>
             </li>
             <li class="nav-item dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dsc1uchot/image/upload/v1653560602/Gomora/Gamora_on_Instagram__zdo8yt.jpg" />

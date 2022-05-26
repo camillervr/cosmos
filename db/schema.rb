@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_142117) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "object"
@@ -71,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_142117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "discovery_date"
+    t.string "discovered_by"
     t.index ["user_id"], name: "index_planets_on_user_id"
   end
 
