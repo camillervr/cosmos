@@ -7,7 +7,7 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 export default class extends Controller {
   connect() {
     flatpickr(".datepicker", {
-      enableTime: true,
+      enableTime: false,
       minDate: new Date()
     });
   }

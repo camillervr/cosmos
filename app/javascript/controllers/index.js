@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DynamicBookingPriceController from "./dynamic_booking_price_controller.js"
+application.register("dynamic-booking-price", DynamicBookingPriceController)
+
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 
