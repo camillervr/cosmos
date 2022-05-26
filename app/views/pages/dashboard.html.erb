@@ -18,8 +18,10 @@
             <p><%= my_booked_planet.start_date.strftime("%d/%m/%Y") %> - <%= my_booked_planet.end_date.strftime("%d/%m/%Y") %> </p>
             <% if my_booked_planet.status == "Space Mission Pending" %>
               <p class="pending">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+            <% elsif %>
+              <p class="accepted">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
             <% else %>
-              <p class="confirmed">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+              <p class="denied">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
             <% end %>
             <%# <p>Status: <i class="fa-solid fa-circle"></i> Pending </p> %>
           </div>
