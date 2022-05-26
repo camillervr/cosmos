@@ -3,6 +3,8 @@ class PlanetsController < ApplicationController
   def index
     if params[:query].present?
       @planets = policy_scope(Planet).where(object: params[:query])
+    elsif params[:search].present?
+      @planets = policy_scope(Planet).where("name ILIKE ?", "%#{params[:search]}%")
     else
       @planets = policy_scope(Planet)
     end
@@ -67,7 +69,8 @@ class PlanetsController < ApplicationController
       :description,
       :object,
       :photo,
-      :discovery_date
+      :discovery_date,
+      :discovered_by
     )
   end
 end
