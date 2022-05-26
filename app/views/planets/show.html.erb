@@ -33,12 +33,12 @@
       <div class="planet-info-reviews">
         <h3>Reviews</h3>
         <hr>
+        <% if !@current_user_booking.nil? %>
             <%= simple_form_for [@current_user_booking, @review] do |f| %>
               <%= f.input :rating, collection: 0..5 %>
               <%= f.input :content %>
               <%= f.submit class: 'btn btn-primary' %>
             <% end %>
-        <% if !@current_user_booking.nil? %>
         <% end %>
       </div>
 
