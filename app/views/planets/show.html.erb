@@ -7,9 +7,9 @@
 
       <div class="planet-info-img">
         <% if @planet.photo.key.nil? %>
-          <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", width: 100, height: 100) %>
+          <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", class: 'planet-info-img') %>
           <%else %>
-          <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'w-100' %>
+          <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'planet-info-img' %>
         <% end %>
       </div>
 
@@ -33,12 +33,12 @@
       <div class="planet-info-reviews">
         <h3>Reviews</h3>
         <hr>
+        <% if !@current_user_booking.nil? %>
             <%= simple_form_for [@current_user_booking, @review] do |f| %>
               <%= f.input :rating, collection: 0..5 %>
               <%= f.input :content %>
               <%= f.submit class: 'btn btn-primary' %>
             <% end %>
-        <% if !@current_user_booking.nil? %>
         <% end %>
       </div>
 
