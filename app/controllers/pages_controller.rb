@@ -11,4 +11,3 @@ class PagesController < ApplicationController
     @my_rented_planets = @user.rented_planets
   end
 end
-
