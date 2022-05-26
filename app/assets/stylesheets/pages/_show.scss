@@ -5,10 +5,11 @@
   margin-top: 80px;
 }
 
-.planet-info > img {
-  width: 900px;
+.planet-info-img {
+  width: 100%;
   height: 500px;
   z-index: 200;
+  object-fit: cover;
 }
 
 .planet-info-tech > h3 {
@@ -16,13 +17,16 @@
   margin-top: 20px
 }
 
+.planet-info-reviews {
+  padding: 30px 0px;
+}
+
 .planet-resa-price {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .planet-info-description {
   padding: 30px 0px;
-
 }
 
 .btn-book {
@@ -43,9 +47,9 @@
 .planet-resa {
   padding: 20px;
   position: sticky;
-  top: 90px;
+  top: 100px;
   min-width: 350px;
-  height: 690px;
+  height: 550px;
 }
 
 .btn-book-new {

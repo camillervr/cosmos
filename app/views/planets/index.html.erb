@@ -1,4 +1,8 @@
 <div class= "planet-types">
+  <%= link_to planets_path, class: "planet-type text-center"  do  %>
+    <h4><i class="fa-solid fa-atom"></i></h4>
+    <p>All</p>
+  <% end %>
   <%= link_to planets_path(query:"Star"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-star"></i></h4>
     <p>Star</p>
@@ -30,13 +34,13 @@
     <h1 class="mb-5 text-white">Planets around the galaxy</h1>
     <div class="row">
 
-      <% @planets.last(6).each do |planet| %>
+      <% @planets.each do |planet| %>
         <div class="col-12 col-sm-6 col-md-4 col-mb-3">
           <%= link_to planet_path(planet), class:"text-decoration-none" do %>
             <div class= "planet-card">
               <% if planet.photo.key.nil? %>
-                <%= image_tag 'mars.jpg', class: 'w-100 image' %>
-              <%else %>
+                <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
+              <% else %>
                 <%= cl_image_tag planet.photo.key, crop: :fill, class: 'w-100 image' %>
               <% end %>
               <div class="planet-card-info">

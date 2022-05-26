@@ -4,8 +4,17 @@
 
 import { application } from "./application"
 
+import DynamicBookingPriceController from "./dynamic_booking_price_controller.js"
+application.register("dynamic-booking-price", DynamicBookingPriceController)
+
+import FlatpickrController from "./flatpickr_controller.js"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
 import HomeController from "./home_controller.js"
 application.register("home", HomeController)
+
+import IndexController from "./index_controller.js"
+application.register("index", IndexController)

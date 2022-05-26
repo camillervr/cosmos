@@ -1,6 +1,45 @@
-<%= simple_form_for [planet, booking] do |f| %>
-        <%= f.input :start_date, label: "Check-in" %>
-        <%= f.input :end_date, label: "Check-out" %>
-        <%= f.input :guests, collection: (1..5) %>
-        <%= f.submit "Fly me to the moon", class:"btn-book" %>
+
+<div data-controller="dynamic-booking-price"
+    data-dynamic-booking-price-night-value="<%= @planet.price_per_day %>" >
+
+  <%= simple_form_for [planet, booking], data: { controller: 'flatpickr'} do |f| %>
+    <div class="d-flex justify-content-around">
+        <%= f.input :start_date, label: 'Check-in', as: :string, required: false,
+        input_html: {class: "datepicker", data: {dynamic_booking_price_target: 'start', action: 'change->dynamic-booking-price#updatePrice'}} %>
+        <%= f.input :end_date, label: 'Check-out', as: :string, required: false,
+        input_html: {class: "datepicker", data: {dynamic_booking_price_target: 'end', action: 'change->dynamic-booking-price#updatePrice'}} %>
+    </div>
+      <%= f.input :guests, label: 'Space Guests', collection: (1..5) %>
+      <%= f.submit "Fly me to the Moooon", class:"btn-book" %>
   <% end %>
+
+
+  <div class="d-flex bd-highlight">
+    <p class="pt-2 flex-grow-1 bd-highlight">Sub-Total</p>
+    <p class="pt-2 bd-highlight"><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</p>
+  </div>
+
+  <div class="d-flex bd-highlight">
+    <p class="pt-2 flex-grow-1 bd-highlight">Cleaning fees</p>
+    <p class="pt-2 bd-highlight"><span data-dynamic-booking-price-target="cleaningFeesHolder"></span> €</p>
+  </div>
+
+  <div class="d-flex bd-highlight">
+    <p class="pt-2 flex-grow-1 bd-highlight">Service fees</p>
+    <p class="pt-2 bd-highlight"><span data-dynamic-booking-price-target="serviceFeesHolder"></span> €</p>
+  </div>
+
+  <div class="d-flex bd-highlight border-bottom">
+    <p class="pt-2 flex-grow-1 bd-highlight">Tourist tax</p>
+    <p class="pt-2 bd-highlight"><span data-dynamic-booking-price-target="touristTaxHolder"></span> €</p>
+  </div>
+
+  <div class="d-flex bd-highlight">
+    <p class="pt-2 flex-grow-1 bd-highlight"><strong>Total</strong></p>
+    <p class="pt-2 bd-highlight"><span data-dynamic-booking-price-target="totalHolder"></span> €</strong></p>
+  </div>
+
+</div>
+
+<%# dynamic_booking_price_target: "datepicker", action: 'change->dynamic-booking-price#updatePrice'
+dynamic_booking_price_target: "datepicker", action: 'change->dynamic-booking-price#updatePrice' %>

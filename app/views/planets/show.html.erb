@@ -7,28 +7,39 @@
 
       <div class="planet-info-img">
         <% if @planet.photo.key.nil? %>
-          <%= cl_image_tag asset_path('mars.jpg'), crop: :fill, class: 'w-100' %>
+          <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", class: 'planet-info-img') %>
           <%else %>
-          <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'w-100' %>
+          <%= cl_image_tag @planet.photo.key, crop: :fill, class: 'planet-info-img' %>
         <% end %>
       </div>
 
       <div class="planet-info-description">
         <h3>About This Planet</h3>
         <hr>
-        <%= @planet.description %><!-- A SUPPRIMER : --><p>Le nom donné à ce satellite est celui de Phobos, un personnage de la mythologie grecque. Phobos et Déimos sont les jumeaux que le dieu Arès (Mars pour les Romains) eut de la déesse Aphrodite (Vénus pour les Romains).</p>
+        <%= @planet.description %>
+        <p>This planet was discovered on <%= @planet.discovery_date %> by <%= @planet.discovered_by %> .</p>
       </div>
 
       <div class="planet-info-tech">
         <h3>Technical Informations</h3>
         <hr>
         <p><i class="fa-solid fa-sitemap"></i> Type of planet: <%= @planet.object %></p>
-        <p><i class="fa-solid fa-temperature-half"></i> Temperature: <%= @planet.temperature %><!-- A SUPPRIMER : -->32°C</p>
-        <p><i class="fa-solid fa-calendar-day"></i></i> Discovery date: <%= @planet.discovery_date %></p>
-        <p><i class="fa-solid fa-satellite"></i> Orbital period: <%= @planet.orbital_period %></p>
-        <!-- <%= @planet.radius %> -->
-        <p><i class="fa-solid fa-moon"></i> Moons: <%= @planet.moons %><!-- A SUPPRIMER : -->Moon 1, Moon 2</p>
-        <p><i class="fa-solid fa-rotate"></i> Surface area: <%= @planet.surface_area %></p>
+        <p><i class="fa-solid fa-temperature-half"></i> Temperature: <%= @planet.temperature %> °C</p>
+        <p><i class="fa-solid fa-satellite"></i> Orbital period: <%= @planet.orbital_period %> days</p>
+        <p><i class="fa-solid fa-moon"></i> Moons: <%= @planet.moons %>
+        <p><i class="fa-solid fa-rotate"></i> Radius: <%= @planet.radius %> km</p>
+      </div>
+
+      <div class="planet-info-reviews">
+        <h3>Reviews</h3>
+        <hr>
+        <% if !@current_user_booking.nil? %>
+            <%= simple_form_for [@current_user_booking, @review] do |f| %>
+              <%= f.input :rating, collection: 0..5 %>
+              <%= f.input :content %>
+              <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+        <% end %>
       </div>
 
     </div>
@@ -45,12 +56,12 @@
 
       </div>
 
-      <%= render "bookings/form", planet: @planet, booking: @booking  %>
+      <%= render "bookings/form", planet: @planet, booking: Booking.new  %>
 
-      <div class="d-flex bd-highlight">
+      <!-- <div class="d-flex bd-highlight"> %>
         <p class="pt-3 flex-grow-1 bd-highlight">Total price</p>
-        <p class="pt-3 bd-highlight">... €</p>
-      </div>
+        <p class="pt-3 bd-highlight">... €</p> %>
+      </div> %>
 
       <div class="d-flex bd-highlight">
         <p class="pt-3 flex-grow-1 bd-highlight">Cleaning fees</p>
@@ -58,19 +69,19 @@
       </div>
 
       <div class="d-flex bd-highlight">
-        <p class="pt-3 flex-grow-1 bd-highlight">Service fees</p>
-        <p class="pt-3 bd-highlight">11.90 €</p>
+        <p class="pt-2 flex-grow-1 bd-highlight">Service fees</p>
+        <p class="pt-2 bd-highlight"><%= @planet.price_per_day * 0.05 %> €</p>
       </div>
 
       <div class="d-flex bd-highlight border-bottom">
-        <p class="pt-3 flex-grow-1 bd-highlight">Tourist tax</p>
-        <p class="pt-3 bd-highlight">6.95 €</p>
+        <p class="pt-2 flex-grow-1 bd-highlight">Tourist tax</p>
+        <p class="pt-2 bd-highlight"><%= @planet.price_per_day * 0.15 %> €</p>
       </div>
 
       <div class="d-flex bd-highlight">
-        <p class="pt-3 flex-grow-1 bd-highlight"><strong>Total</strong></p>
-        <p class="pt-3 bd-highlight"><strong>23.80 €</strong></p>
-      </div>
+        <p class="pt-2 flex-grow-1 bd-highlight"><strong>Total price</strong></p>
+        <p class="pt-2 bd-highlight"><strong><%= @planet.price_per_day * 0.10 + @planet.price_per_day * 0.05 + @planet.price_per_day * 0.15 %> €</strong></p>
+      </div> -->
 
     </div>
 
