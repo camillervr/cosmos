@@ -30,31 +30,31 @@
 
   <div class="col-6">
     <div class="d-flex justify-content-between align-self-start">
-    <h3>My Planets</h3>
-    <%= link_to "Add New Planet", planets_path, class:"btn-yellow" %>
+    <h3>My Pending Reservations</h3>
+    <%= link_to "Add New Planet", new_planet_path, class:"btn-yellow" %>
     </div>
       <div class="cards-planets mt-4">
       <div class="row">
-          <% @my_planets.each do |my_planet| %>
+          <% @my_rented_planets.pending.each do |my_booking| %>
           <div class="col-6">
             <div class="card-planet">
-              <% if my_planet.photo.key.nil? %>
+              <% if my_booking.planet.photo.key.nil? %>
                   <%= image_tag 'mars.jpg' %>
               <%else %>
-                  <%= cl_image_tag my_planet.photo.key, crop: :fill %>
+                  <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
               <% end %>
             <div class="card-planet-infos">
-              <h2> <%= my_planet.name %></h2>
-              <p> Status: Reserved</p>
+              <h2> <%= my_booking.planet.name %></h2>
+              <p> Status: <%=my_booking.status  %> </p>
               <p class="rating"><i class="fa fa-star checked"></i> 4.5</p>
+                <%= link_to "accept", accept_booking_path(my_booking), data: { turbo_method: :patch}%>
+                <%= link_to "deny", decline_booking_path(my_booking), data: { turbo_method: :patch}%>
             </div>
         </div>
       </div>
       <% end %>
     </div>
     </div>
-
-
   </div>
   </div>
 </div>
