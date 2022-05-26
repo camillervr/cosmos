@@ -1,4 +1,8 @@
 <div class= "planet-types">
+  <%= link_to planets_path, class: "planet-type text-center"  do  %>
+    <h4><i class="fa-solid fa-atom"></i></h4>
+    <p>All</p>
+  <% end %>
   <%= link_to planets_path(query:"Star"), class: "planet-type text-center"  do  %>
     <h4><i class="fa-solid fa-star"></i></h4>
     <p>Star</p>

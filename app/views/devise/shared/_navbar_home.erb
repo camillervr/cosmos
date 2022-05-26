@@ -1,5 +1,26 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid pt-2">
-    <%= link_to "cosmos.", root_path, id: "logo" %>
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid pt-2">
+      <%= link_to "cosmos.", root_path, id: "logo" %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <%= link_to "cosmos.", root_path, id: "logo" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+              <li class="btn-log-in">
+                <%= link_to "Log in", new_user_session_path  %>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<% end %>

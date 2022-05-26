@@ -5,10 +5,6 @@ User.destroy_all
 require 'open-uri'
 require 'json'
 
-url = "https://api.le-systeme-solaire.net/rest/bodies/"
-puts url
-planet_serialized = URI.open(url).read
-planets = JSON.parse(planet_serialized)
 
 user_one = User.create!(
   email: "rena@cosmos.fr",
@@ -38,7 +34,19 @@ user_four = User.create!(
   password: "123459"
 )
 
-fantastic_four = [user_one, user_two, user_three, user_four]
+user_five = User.create!(
+  email: "gamora@cosmos.fr",
+  first_name: "Gamora",
+  last_name: "Thing",
+  password: "123450"
+)
+
+fantastic_four = [user_one, user_two, user_three, user_four, user_five]
+
+url = "https://api.le-systeme-solaire.net/rest/bodies/"
+puts url
+planet_serialized = URI.open(url).read
+planets = JSON.parse(planet_serialized)
 
 planets["bodies"].first(40).each do |planet|
   puts "creating planets"
@@ -51,9 +59,18 @@ planets["bodies"].first(40).each do |planet|
     moons: planet["moons"],
     surface_area: planet["dimension"],
     price_per_day: rand(100..300),
-    discovery_date: planet["discoveryDate"]
+    discovery_date: planet["discoveryDate"],
+    discovered_by: planet["discoveredBy"],
+    temperature: rand(-300..100)
   )
   cosmic_objects.user = fantastic_four.sample
   cosmic_objects.save!
   puts "done"
 end
+
+planet_one = User.create!(
+  email: "gamora@cosmos.fr",
+  first_name: "Gamora",
+  last_name: "Thing",
+  password: "123450"
+)
