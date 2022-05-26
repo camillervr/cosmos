@@ -10,7 +10,7 @@
             <% if my_booked_planet.planet.photo.key.nil? %>
               <%= image_tag 'mars.jpg' %>
             <%else %>
-              <%= cl_image_tag my_planet.photo.key, crop: :fill %>
+              <%= cl_image_tag my_booked_planet.planet.photo.key, crop: :fill %>
             <% end %>
           <div class="card-product-infos">
             <h2> <%= my_booked_planet.planet.name %></h2>

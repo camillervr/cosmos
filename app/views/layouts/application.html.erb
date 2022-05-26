@@ -13,8 +13,17 @@
   </head>
 
   <body>
-
-      <%= render "devise/shared/navbar_index" %>
+    <% if user_signed_in? %>
+      <% if current_page?(controller: 'pages', action: 'home') %>
+        <%= render "devise/shared/navbar_home" %>
+      <% elsif current_page?(controller: 'planets', action: 'index') %>
+        <%= render "devise/shared/navbar" %>
+      <% else %>
+        <%= render "devise/shared/navbar_index" %>
+      <% end %>
+    <% else %>
+      <%= render "devise/shared/navbar" %>
+    <% end %>
 
     <%= render "devise/shared/flashes" %>
     <div class="stars-background"></div>
