@@ -34,7 +34,7 @@
     <h1 class="mb-5 text-white">Planets around the galaxy</h1>
     <div class="row">
 
-      <% @planets.last(6).each do |planet| %>
+      <% @planets.each do |planet| %>
         <div class="col-12 col-sm-6 col-md-4 col-mb-3">
           <%= link_to planet_path(planet), class:"text-decoration-none" do %>
             <div class= "planet-card">
