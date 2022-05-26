@@ -5,7 +5,7 @@
   <div class="col-6">
     <h3>My Upcoming Reservations</h3>
 
-      <% @user.bookings.each do |my_booked_planet| %>
+      <% @user.bookings.sort_by { |booking| booking.start_date }.each do |my_booked_planet| %>
         <div class="card-product">
             <% if my_booked_planet.planet.photo.key.nil? %>
               <%= image_tag 'mars.jpg' %>
@@ -15,7 +15,7 @@
           <div class="card-product-infos">
             <h2> <%= my_booked_planet.planet.name %></h2>
             <p> <%= my_booked_planet.planet.object %> hosted by planet owner only.</p>
-            <p><%= my_booked_planet.start_date %> - <%= my_booked_planet.end_date %> </p>
+            <p><%= my_booked_planet.start_date.strftime("%d/%m/%Y") %> - <%= my_booked_planet.end_date.strftime("%d/%m/%Y") %> </p>
             <% if my_booked_planet.status == "Space Mission Pending" %>
               <p class="pending">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
             <% else %>
@@ -31,7 +31,7 @@
   <div class="col-6">
     <div class="d-flex justify-content-between align-self-start">
     <h3>My Pending Reservations</h3>
-    <%= link_to "Add New Planet", new_planet_path, class:"btn-new-planet" %>
+    <%= link_to "Add New Planet", new_planet_path, class:"btn-yellow" %>
     </div>
       <div class="cards-planets mt-4">
       <div class="row">

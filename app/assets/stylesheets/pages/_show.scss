@@ -9,6 +9,7 @@
   width: 900px;
   height: 500px;
   z-index: 200;
+  object-fit: cover;
 }
 
 .planet-info-tech > h3 {
@@ -45,7 +46,7 @@
   position: sticky;
   top: 90px;
   min-width: 350px;
-  height: 690px;
+  height: 600px;
 }
 
 .btn-book-new {
