@@ -48,7 +48,7 @@ class PlanetsController < ApplicationController
     @planet = Planet.find(params[:id])
     authorize @planet
     @planet.destroy
-    redirect_to planets_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
