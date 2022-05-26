@@ -1,6 +1,11 @@
-<%= simple_form_for [planet, booking] do |f| %>
-        <%= f.input :start_date, label: "Check-in" %>
-        <%= f.input :end_date, label: "Check-out" %>
-        <%= f.input :guests, collection: (1..5) %>
-        <%= f.submit "Fly me to the moon", class:"btn-book" %>
+
+<div>
+<%= simple_form_for [planet, booking], data: { controller: 'flatpickr'} do |f| %>
+<div class="d-flex justify-content-around">
+    <%= f.input :start_date, label: 'Check-in', as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, label: 'Check-out', as: :string, required: false, input_html: {class: "datepicker"} %>
+</div>
+    <%= f.input :guests, label: 'Space Guests', collection: (1..5) %>
+    <%= f.submit "Fly me to the Moooon", class:"btn-book" %>
   <% end %>
+</div>
