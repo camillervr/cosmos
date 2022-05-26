@@ -69,7 +69,8 @@ class PlanetsController < ApplicationController
       :description,
       :object,
       :photo,
-      :discovery_date
+      :discovery_date,
+      :discovered_by
     )
   end
 end
