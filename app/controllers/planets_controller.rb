@@ -11,6 +11,8 @@ class PlanetsController < ApplicationController
   def show
     @planet = Planet.find(params[:id])
     @booking = Booking.new
+    @current_user_booking = current_user.bookings.where(planet: @planet).last
+    @review = Review.new
     authorize @planet
   end
 

@@ -39,8 +39,8 @@
           <%= link_to planet_path(planet), class:"text-decoration-none" do %>
             <div class= "planet-card">
               <% if planet.photo.key.nil? %>
-                <%= image_tag 'mars.jpg', class: 'w-100 image' %>
-              <%else %>
+                <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
+              <% else %>
                 <%= cl_image_tag planet.photo.key, crop: :fill, class: 'w-100 image' %>
               <% end %>
               <div class="planet-card-info">

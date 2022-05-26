@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :planet
   belongs_to :user
+  has_many :reviews, dependent: :destroy
 
   validates :status, presence: true
   validates :end_date, presence: true

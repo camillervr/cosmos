@@ -30,6 +30,18 @@
         <p><i class="fa-solid fa-rotate"></i> Surface area: <%= @planet.surface_area %></p>
       </div>
 
+      <div class="planet-info-reviews">
+        <h3>Reviews</h3>
+        <hr>
+            <%= simple_form_for [@current_user_booking, @review] do |f| %>
+              <%= f.input :rating, collection: 0..5 %>
+              <%= f.input :content %>
+              <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+        <% if !@current_user_booking.nil? %>
+        <% end %>
+      </div>
+
     </div>
 
     <div class="planet-resa card-body border text-white rounded mb-3 bg-dark-opacity-10">
@@ -44,7 +56,7 @@
 
       </div>
 
-      <%= render "bookings/form", planet: @planet, booking: @booking  %>
+      <%= render "bookings/form", planet: @planet, booking: Booking.new  %>
 
       <div class="d-flex bd-highlight">
         <p class="pt-3 flex-grow-1 bd-highlight">Total price</p>

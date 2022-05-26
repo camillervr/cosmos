@@ -8,8 +8,8 @@
       <% @user.bookings.sort_by { |booking| booking.start_date }.each do |my_booked_planet| %>
         <div class="card-product">
             <% if my_booked_planet.planet.photo.key.nil? %>
-              <%= image_tag 'mars.jpg' %>
-            <%else %>
+              <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
+            <% else %>
               <%= cl_image_tag my_booked_planet.planet.photo.key, crop: :fill %>
             <% end %>
           <div class="card-product-infos">
@@ -39,7 +39,7 @@
           <div class="col-6">
             <div class="card-planet">
               <% if my_booking.planet.photo.key.nil? %>
-                  <%= image_tag 'mars.jpg' %>
+                  <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
               <%else %>
                   <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
               <% end %>
