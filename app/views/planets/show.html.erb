@@ -37,19 +37,19 @@
         <% if !@current_user_booking.nil? %>
           <h3>Reviews</h3>
           <hr>
-          <% if @planet.bookings.empty? %>
-            <p>Be the first to review this <%= @planet.object %>!</p>
-          <% end %>
-          <% @planet.bookings.each do |booking| %>
-            <h4><%= pluralize booking.reviews.size, "review" %></h4>
-            <% if booking.reviews.empty? %>
-              <p>Be the first to review this <%= @planet.object %>!</p>
+            <% if @planet.bookings.map(&:reviews).empty? %>
+                <p>Be the first to review this <%= @planet.object %>!</p>
             <% else %>
-              <p><% booking.reviews.each do |review| %></p>
+          <%# @planet.bookings.each do |booking| %>
+            <h4><%= pluralize @planet.bookings.map(&:reviews).flatten.size, "review" %></h4>
+            <% if @planet.bookings.map(&:reviews).flatten.empty? %>
+            <% else %>
+              <p><% @planet.bookings.map(&:reviews).flatten.each do |review| %></p>
                 <p><i class="fa fa-star checked"></i>  <%= review.rating %> - <%= review.content %></p>
               <% end %>
             <% end %>
-          <% end %>
+            <% end %>
+          <%# end %>
             <div class="review-form">
               <%= simple_form_for [@current_user_booking, @review] do |f| %>
                 <%= f.input :rating, collection: 0..5 %>
