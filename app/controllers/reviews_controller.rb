@@ -4,8 +4,13 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @planet = @booking.planet
     @review = Review.new(review_params)
+    @review.booking_id = @booking.id
     authorize @review
-    redirect_to planet_path(@planet)
+    if @review.save
+      redirect_to planet_path(@planet)
+    else
+      render "planets/show", status: :unprocessable_entity
+    end
   end
 
   private
@@ -13,4 +18,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :content)
   end
+
 end
