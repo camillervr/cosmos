@@ -38,7 +38,7 @@
 .card-square {
   margin: 10px 0;
   overflow: hidden;
-  height: 250px;
+  height: 270px;
   background: #192331;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -49,6 +49,7 @@
 
 .card-square img {
   height: 170px;
+  min-width: 300px;
   width: 100%;
   object-fit: cover;
   text-align: left;
@@ -143,17 +144,16 @@
 .btn-delete-planet {
   color: white;
   text-align: center;
-  display: block;
-  width: 50%;
-  padding: 0px;
-  border-radius: 4px;
-  background: #192331;
+  // display: block;
+  // width: 50%;
+  padding: 5px 20px;
+  border-radius: 3px;
+  background:#7F8487;
   transition: 0.3s ease;
-  font-size:10px;
+  font-size:12px;
   letter-spacing: 1.5px;
   font-family: 'Open Sans', sans-serif;
-  width: 50px;
-  margin: 2px, 4px, 2px, 4px
+  margin-top: 10px;
 }
 
 .my-planets{
