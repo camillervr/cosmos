@@ -35,12 +35,12 @@ export default class extends Controller {
   }
 
   updateFees(totalPrice) {
-    const cleaning = (totalPrice * 0.15)
+    const cleaning = Math.round(totalPrice * 0.15)
     this.cleaningFeesHolderTarget.innerText = cleaning
-    const service = (totalPrice * 0.3)
-    this.serviceFeesHolderTarget.innerText = (totalPrice * 0.3)
-    const tax = (totalPrice * 0.1)
-    this.touristTaxHolderTarget.innerText = (totalPrice * 0.1)
+    const service = Math.round(totalPrice * 0.3)
+    this.serviceFeesHolderTarget.innerText = Math.round(totalPrice * 0.3)
+    const tax = Math.round(totalPrice * 0.15)
+    this.touristTaxHolderTarget.innerText = Math.round(totalPrice * 0.15)
     this.totalHolderTarget.innerText = (cleaning + service + tax + totalPrice)
   }
 }

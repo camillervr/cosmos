@@ -1,14 +1,33 @@
-<%= simple_form_for(planet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :object, collection: Planet::OBJECT %>
-  <%= f.input :temperature %>
-  <%= f.input :discovery_date %>
-  <%= f.input :orbital_period %>
-  <%= f.input :around_planet %>
-  <%= f.input :moons %>
-  <%= f.input :surface_area %>
-  <%= f.input :price_per_day %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-primary' %>
+<div class = "container mt-3" style = "width: 500px">
+  <div class="form-inputs">
+    <%= simple_form_for(planet) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :object, collection: Planet::OBJECT %>
+      <div class="d-flex justify-content-between">
+        <%= f.input :temperature %>
+        <%= f.input :discovery_date %>
+      </div>
+      <div class="d-flex justify-content-between">
+        <%= f.input :orbital_period %>
+        <%= f.input :around_planet %>
+      </div>
+      <div class="d-flex justify-content-between">
+        <%= f.input :moons %>
+        <%= f.input :surface_area %>
+      </div>
+    <%= f.input :price_per_day %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-yellow' %>
+    <br>
+    <%= link_to 'Back to planet', planets_path, class: 'btn btn-yellow' %>
+  </div>
 <% end %>
+</div>
+<br>
+<div class="container mt-5">
+  <p class="footer">© 2022 Cosmos, Inc. from Space with love</p>
+</div>

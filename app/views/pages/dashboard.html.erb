@@ -1,93 +1,102 @@
 <div class="container">
-<div class="d-flex justify-content-between align-items-baseline">
-  <h1 class="mb-4"><%= @user.first_name %>'s Dashboard </h1>
-  <%= link_to "Add New Planet", new_planet_path, class:"btn-yellow" %>
-</div>
+  <div class="d-flex justify-content-between align-items-baseline">
+    <h1 class="mb-4"><%= @user.first_name %>'s Dashboard </h1>
+    <%= link_to "Add New Planet", new_planet_path, class:"btn-yellow" %>
+  </div>
+
+<!-- Upcoming reservation -->
 
   <div class="row">
-  <div class="col-6">
-    <h3>My Upcoming Reservations</h3>
-
+    <div class="col-6">
+      <h3>My Upcoming Reservations</h3>
       <% @user.bookings.sort_by { |booking| booking.start_date }.each do |my_booked_planet| %>
-        <div class="card-product">
-            <% if my_booked_planet.planet.photo.key.nil? %>
-              <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
-            <% else %>
-              <%= cl_image_tag my_booked_planet.planet.photo.key, crop: :fill %>
-            <% end %>
+      <div class="card-product">
+        <% if my_booked_planet.planet.photo.key.nil? %>
+          <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
+        <% else %>
+          <%= cl_image_tag my_booked_planet.planet.photo.key, crop: :fill %>
+        <% end %>
+        <%= link_to planet_path(my_booked_planet.planet) do  %> <!-- LINK TO MY SHOW PLANET -->
           <div class="card-product-infos">
-            <h2> <%= my_booked_planet.planet.name %></h2>
-            <p> <%= my_booked_planet.planet.object %> hosted by planet owner only.</p>
-            <p><%= my_booked_planet.start_date.strftime("%d/%m/%Y") %> - <%= my_booked_planet.end_date.strftime("%d/%m/%Y") %> </p>
-            <% if my_booked_planet.status == "Space Mission Pending" %>
-              <p class="pending">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
-            <% else %>
-              <p class="confirmed">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
-            <% end %>
-            </div>  <%# <p>Status: <i class="fa-solid fa-circle"></i> Pending </p> %>
-        </div>
+          <h2> <%= my_booked_planet.planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
+          <p> <%= my_booked_planet.planet.object %> hosted by planet owner only.</p>
+          <p><%= my_booked_planet.start_date.strftime("%d/%m/%Y") %> - <%= my_booked_planet.end_date.strftime("%d/%m/%Y") %> </p>
+          <% if my_booked_planet.status == "Space Mission Pending" %>
+            <p class="pending">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+          <% else %>
+            <p class="confirmed">Status: <i class="fa-solid fa-circle"></i> <%= my_booked_planet.status %> </p>
+          <% end %>
+          </div>  <%# <p>Status: <i class="fa-solid fa-circle"></i> Pending </p> %>
+        <% end %>
+      </div>
       <% end %>
-    </div>
+  </div>
+
+<!-- Pending reservation -->
 
   <div class="col-6">
     <div class="d-flex justify-content-between align-self-start">
-    <h3>Pending Reservations</h3>
+      <h3>Pending Reservations</h3>
     </div>
-      <div class="cards-planets mt-4">
+    <div class="cards-planets mt-4">
       <div class="row">
         <% @my_rented_planets.pending.each do |my_booking| %>
           <div class="">
-            <div class="card-product">
+          <%= link_to planet_path(my_booking.planet) do  %> <!-- LINK TO MY SHOW PLANET -->
+            <div class="card-product mt-0">
               <% if my_booking.planet.photo.key.nil? %>
                   <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
               <%else %>
                 <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
               <% end %>
               <div class="card-product-infos">
-                <h2> <%= my_booking.planet.name %></h2>
+                <h2> <%= my_booking.planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
                 <p> Status: <%=my_booking.status  %> </p>
                 <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_booking.planet.rating %></p>
                 <div class="d-flex justify-content-around">
                   <%= link_to "accept", accept_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
                   <%= link_to "deny", decline_booking_path(my_booking), class:"btn-delete-planet", data: { turbo_method: :patch}%>
-                </div>
               </div>
             </div>
+          <% end %>
           </div>
         <% end %>
       </div>
     </div>
+  </div>
 
 <!-- Accepted reservation -->
     <div class="d-flex justify-content-between align-self-start mt-3">
         <h3>Accepted Reservations</h3>
-      </div>
+    </div>
 
     <div class="cards-planets mt-0">
       <div class="row">
         <% @my_rented_planets.accepted.each do |my_booking| %>
-        <div class="">
-          <div class="card-product">
-            <% if my_booking.planet.photo.key.nil? %>
-              <%= image_tag 'mars.jpg' %>
-            <%else %>
-              <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
-            <% end %>
-            <div class="card-product-infos">
-              <h2> <%= my_booking.planet.name %></h2>
-              <p> Status: <%=my_booking.status  %> </p>
-              <p class="rating"><i class="fa fa-star checked"></i></i></i> <%= my_booking.planet.rating %></p>
-              <%= link_to "deny", decline_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
+          <%= link_to planet_path(my_booking.planet) do  %> <!-- LINK TO MY SHOW PLANET -->
+            <div class="mt-0">
+              <div class="card-product" >
+                <%if my_booking.planet.photo.key.nil?%>
+                  <%= image_tag 'mars.jpg' %>
+                <%else %>
+                  <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
+                <%end %>
+                <div class="card-product-infos">
+                  <h2> <%= my_booking.planet.name%></h2>
+                  <p> Status: <%=my_booking.status  %> </p>
+                  <p class="rating"><i class="fa fa-star checked"></i></i></i> <%= my_booking.planet.rating %></p>
+                  <%= link_to "deny", decline_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
+                </div>
               </div>
             </div>
-          </div>
-          <% end %>
-        </div>
+          <%end%>
+        <%end%>
+      </div>
     </div>
 
 
 <!-- Planets users title -->
-      <div class="d-flex justify-content-between align-self-start my-5">
+      <div class="d-flex justify-content-between align-self-start my-3">
         <h3>My planets</h3>
       </div>
 <!-- Planets users card -->
@@ -95,8 +104,9 @@
           <div class="row" style="width: 85%;">
             <%@my_planets.each do |my_planet| %>
             <div class="col-6">
+            <%= link_to planet_path(my_planet) do  %> <!-- LINK TO MY SHOW PLANET -->
               <div class="card-square">
-                <div class="">
+                <div class="my-planets">
                   <% if my_planet.photo.key.nil? %>
                     <%= image_tag 'mars.jpg' %>
                   <%else %>
@@ -104,17 +114,22 @@
                   <% end %>
                 </div>
                 <div class="card-square-infos w-75">
-                  <div class="d-flex justify-content-between">
-                    <h2> <%= my_planet.name %></h2>
-                    <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_planet.rating %></p>
-                  </div>
-                  <%= link_to "delete", planet_path(my_planet), class:"btn-delete-planet", data: { turbo_method: :delete}%>
+                <div class="d-flex justify-content-between">
+                  <h2> <%= my_planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
+                  <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_planet.rating %></p>
+                </div>
+                <%= link_to "delete", planet_path(my_planet), class:"btn-delete-planet", data: { turbo_method: :delete}%>
                 </div>
               </div>
+            <%end%>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
+<br>
+<div class="container mt-5">
+  <p class="footer">© 2022 Cosmos, Inc. from Space with love</p>
 </div>
