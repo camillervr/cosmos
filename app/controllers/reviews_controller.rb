@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
     else
       render "planets/show", status: :unprocessable_entity
     end
-    # ratings
   end
 
   private
@@ -20,14 +19,4 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content)
   end
 
-  # def ratings
-  #   ratings = []
-  #   @planet.bookings.each do |booking|
-  #     booking.reviews.each do |review|
-  #      review.content
-  #      ratings << review.rating
-  #     end
-  #   end
-  #   ratings_average = ratings.inject{ |sum, n| sum + n }.to_f / ratings.size
-  # end
 end

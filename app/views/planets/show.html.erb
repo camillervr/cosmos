@@ -31,34 +31,32 @@
       </div>
 
       <div class="planet-info-reviews">
-
-        <h3>Reviews</h3>
-        <hr>
-
-        <% if @planet.bookings.empty? %>
-          <p>Be the first to review this <%= @planet.object %>!</p>
-        <% end %>
-        <% @planet.bookings.each do |booking| %>
-            <h2><%= pluralize booking.reviews.size, "review" %></h2>
+        <% if !@current_user_booking.nil? %>
+          <h3>Reviews</h3>
+          <hr>
+          <% if @planet.bookings.empty? %>
+            <p>Be the first to review this <%= @planet.object %>!</p>
+          <% end %>
+          <% @planet.bookings.each do |booking| %>
+            <h4><%= pluralize booking.reviews.size, "review" %></h4>
             <% if booking.reviews.empty? %>
               <p>Be the first to review this <%= @planet.object %>!</p>
             <% else %>
               <p><% booking.reviews.each do |review| %></p>
-                <%= review.content %>
+                <p><i class="fa fa-star checked"></i>  <%= review.rating %> - <%= review.content %></p>
               <% end %>
             <% end %>
-        <% end %>
-
-        <div class="review-form">
-          <% if !@current_user_booking.nil? %>
+          <% end %>
+            <div class="review-form">
               <%= simple_form_for [@current_user_booking, @review] do |f| %>
                 <%= f.input :rating, collection: 0..5 %>
                 <%= f.input :content, as: :text %>
                 <%= f.submit class: 'btn btn-yellow' %>
               <% end %>
-          <% end %>
+            </div>
+        <% end %>
 
-        </div>
+
 
       </div>
 
