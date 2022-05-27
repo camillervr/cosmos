@@ -18,7 +18,6 @@
     <%= f.input :price_per_day %>
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
-  </div>
 
   <div class="form-actions">
     <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-yellow' %>
@@ -26,6 +25,7 @@
     <%= link_to 'Back to planet', planets_path, id: 'simple-link my-3' %>
   </div>
 <% end %>
+  </div>
 </div>
 <br>
 <div class="container mt-5">
