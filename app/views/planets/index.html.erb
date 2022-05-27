@@ -46,9 +46,18 @@
               <div class="planet-card-info">
                 <div class="d-flex justify-content-between">
                   <h3><%= planet.name %></h3>
-                  <p class="rating"> <%= planet.rating %>
-                    <i class="fa fa-star checked"></i>
-                  </p>
+                  <div class="rating d-flex">
+                    <% if !planet.reviews.empty? %>
+                      <p><i class="fa fa-star checked mx-2"></i></p>
+                      <div>
+                        <% ratings =[] %>
+                        <% planet.reviews.each do |review| %>
+                        <% ratings << review.rating %>
+                        <% end %>
+                        <%= (ratings.inject{ |sum, n| sum + n }.to_f / ratings.size).round(1) %>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="planet-card-object d-flex justify-content-between">
                   <%= planet.object.upcase %>
