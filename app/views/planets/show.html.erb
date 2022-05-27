@@ -68,8 +68,14 @@
         <p><strong><%= @planet.price_per_day %> €</strong> / day</p>
 
         <div class="planet-resa-price-rating d-flex justify-content-between">
-          <p><i class="fa fa-star checked"></i> 4.5</p>
-
+        <% if !@planet.reviews.empty? %>
+          <p><i class="fa fa-star checked mx-2"></i></p>
+          <% ratings =[] %>
+          <% @planet.reviews.each do |review| %>
+          <% ratings << review.rating %>
+          <% end %>
+          <%= (ratings.inject{ |sum, n| sum + n }.to_f / ratings.size).round(1) %>
+        <% end %>
         </div>
 
       </div>
@@ -80,4 +86,3 @@
 
   </div>
 </div>
-
