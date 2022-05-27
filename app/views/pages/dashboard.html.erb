@@ -52,10 +52,10 @@
               <div class="card-product-infos">
                 <div class="d-flex justify-content-between align-items-center">
                   <h2> <%= my_booking.planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
-                  <p class="rating mt-0"><i class="fa fa-star checked"></i> 4.5</p>
+                  <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_booking.planet.rating %></p>
                 </div>
                 <p> Status: <%=my_booking.status  %> </p>
-                <div class="d-flex justify-content-around mt-1">
+                <div class="d-flex justify-content-around">
                   <%= link_to "accept", accept_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
                   <%= link_to "deny", decline_booking_path(my_booking), class:"btn-delete-planet", data: { turbo_method: :patch}%>
               </div>
@@ -75,27 +75,24 @@
     <div class="cards-planets mt-0">
       <div class="row">
         <% @my_rented_planets.accepted.each do |my_booking| %>
-            <div class="">
-              <%= link_to planet_path(my_booking.planet) do  %> <!-- LINK TO MY SHOW PLANET -->
-                  <div class="card-product mt-0" >
-                    <%if my_booking.planet.photo.key.nil?%>
-                      <%= image_tag 'mars.jpg' %>
-                    <%else %>
-                      <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
-                    <%end %>
-                    <div class="card-product-infos">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <h2> <%= my_booking.planet.name%></h2>
-                      <p class="rating mt-0"><i class="fa fa-star checked"></i> 4.5</p>
-                    </div>
-                      <p> Status: <%=my_booking.status  %> </p>
-                      <div class="d-flex mt-1">
-                        <%= link_to "deny", decline_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
-                      </div>
-                    </div>
-                  </div>
-              <%end%>
+          <%= link_to planet_path(my_booking.planet) do  %> <!-- LINK TO MY SHOW PLANET -->
+            <div class="card-product mt-0">
+              <% if my_booking.planet.photo.key.nil? %>
+                  <%= cl_image_tag("v1653561202/production/mars_ketmrx.jpg", crop: :fill, class: 'w-100') %>
+              <%else %>
+                <%= cl_image_tag my_booking.planet.photo.key, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2> <%= my_booking.planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
+                  <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_booking.planet.rating %></p>
+                </div>
+                <p> Status: <%=my_booking.status  %> </p>
+                <div class="d-flex">
+                  <%= link_to "deny", decline_booking_path(my_booking), class:"btn-delete-planet", data: { turbo_method: :patch}%>
+              </div>
             </div>
+            <% end %>
         <%end%>
       </div>
     </div>
@@ -122,7 +119,7 @@
                 <div class="card-square-infos w-75">
                 <div class="d-flex justify-content-between">
                   <h2> <%= my_planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
-                  <p class="rating"><i class="fa fa-star checked"></i></i> 4.5</p>
+                  <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_planet.rating %></p>
                 </div>
                 <div class="d-flex mt-0">
                   <%= link_to "delete", planet_path(my_planet), class:"btn-delete-planet", data: { turbo_method: :delete}%>

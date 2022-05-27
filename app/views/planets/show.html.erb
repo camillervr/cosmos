@@ -1,5 +1,9 @@
 <div class="planet-show container">
-  <h1><%= @planet.name %></h1>
+
+  <div class="d-flex justify-content-between">
+    <h1><%= @planet.name %></h1>
+    <%= link_to "Back to all planets", planets_path, id: "simple-link" %>
+  </div>
 
   <div class="d-flex">
 
@@ -17,7 +21,6 @@
         <h3>About this <%= @planet.object %></h3>
         <hr>
         <%= @planet.description %>
-        <p>This planet was discovered on <%= @planet.discovery_date %> by <%= @planet.discovered_by %> .</p>
       </div>
 
       <div class="planet-info-tech">
@@ -68,8 +71,14 @@
         <p><strong><%= @planet.price_per_day %> €</strong> / day</p>
 
         <div class="planet-resa-price-rating d-flex justify-content-between">
-          <p><i class="fa fa-star checked"></i> 4.5</p>
-
+        <% if !@planet.reviews.empty? %>
+          <p><i class="fa fa-star checked mx-2"></i></p>
+          <% ratings =[] %>
+          <% @planet.reviews.each do |review| %>
+          <% ratings << review.rating %>
+          <% end %>
+          <%= (ratings.inject{ |sum, n| sum + n }.to_f / ratings.size).round(1) %>
+        <% end %>
         </div>
 
       </div>
@@ -80,4 +89,3 @@
 
   </div>
 </div>
-

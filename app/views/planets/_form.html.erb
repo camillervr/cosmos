@@ -23,7 +23,7 @@
   <div class="form-actions">
     <%= f.submit "#{ planet.persisted? ? 'Update' : 'Create' } Planet", class: 'btn btn-yellow' %>
     <br>
-    <%= link_to 'Back to planet', planets_path, class: 'btn btn-yellow' %>
+    <%= link_to 'Back to planet', planets_path, id: 'simple-link my-3' %>
   </div>
 <% end %>
 </div>
