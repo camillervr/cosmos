@@ -155,3 +155,13 @@
   width: 50px;
   margin: 2px, 4px, 2px, 4px
 }
+
+.my-planets{
+  overflow: hidden;
+  img{
+    width: 120px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0px;
+  }
+}
