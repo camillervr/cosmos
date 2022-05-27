@@ -127,9 +127,145 @@ planet_four = Planet.new(
   discovery_date: "Billions and billions of years ago",
   discovered_by: "No one really knows",
   temperature: rand(-300..100),
-  description: "The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma,[18][19] heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as visible light, ultraviolet, and infrared radiation. It is the most important source of energy for life on Earth."
+  description: "The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as visible light, ultraviolet, and infrared radiation. It is the most important source of energy for life on Earth."
 )
 planet_four.user = fantastic_four.sample
 url_four = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653576284/production/The_Sun_in_white_light_vokdky.jpg")
 planet_four.photo.attach(io: url_four, filename: "nes.png", content_type: "image/png")
 planet_four.save!
+
+planet_five = Planet.new(
+  name: "Vega",
+  object: "Star",
+  orbital_period: "2.42977±0.00016",
+  radius: "2.362-2.818",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "17/08/1850",
+  discovered_by: "William Bond and John Adams Whipple",
+  temperature: rand(-300..100),
+  description: "Vega is the brightest star in the northern constellation of Lyra. It has the Bayer designation α Lyrae, which is Latinised to Alpha Lyrae and abbreviated Alpha Lyr or α Lyr. This star is relatively close at only 25 light-years (7.7 parsecs) from the Sun, and, together with Arcturus and Sirius, one of the most luminous stars in the Sun's neighborhood. It is the fifth-brightest star in the night sky, and the second-brightest star in the northern celestial hemisphere, after Arcturus."
+)
+planet_five.user = fantastic_four.sample
+url_five = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653646153/production/seine-et-marne--focus-on-one-of-the-most-beautiful-stars-of-heaven--vega-in-the-constellation-lyra--the-blue-star-is-located-25-light-years-from-earth-and-is-clearly-visible--especially-in-summer--986946952-5c5c625546e0fb00015873fe_xmt9ch.jpg")
+planet_five.photo.attach(io: url_five, filename: "nes.png", content_type: "image/png")
+planet_five.save!
+
+planet_six = Planet.new(
+  name: "Pluto",
+  object: "Dwarf Planet",
+  orbital_period: "366.7",
+  radius: "1,188.3±0.8",
+  moons: "Charon, Styx, Nix, Kerberos and Hydra.",
+  price_per_day: rand(100..300),
+  discovery_date: "18/02/1930",
+  discovered_by: "Clyde W. Tombaugh",
+  temperature: rand(-300..100),
+  description: "Pluto is the ninth-largest and tenth-most-massive known object directly orbiting the Sun. It is the largest known trans-Neptunian object by volume but is less massive than Eris. Like other Kuiper belt objects, Pluto is primarily made of ice and rock and is relatively small—one-sixth the mass of the Moon and one-third its volume. It has a moderately eccentric and inclined orbit, ranging from 30 to 49 astronomical units (4.5 to 7.3 billion kilometers; 2.8 to 4.6 billion miles) from the Sun. Therefore, Pluto periodically comes closer to the Sun than Neptune. Still, a stable orbital resonance with Neptune prevents them from colliding. As a result, light from the Sun takes 5.5 hours to reach Pluto at its average distance (39.5 AU [5.91 billion km; 3.67 billion mi])."
+)
+planet_six.user = fantastic_four.sample
+url_six = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653646442/production/download_nq0jae.jpg")
+planet_six.photo.attach(io: url_six, filename: "nes.png", content_type: "image/png")
+planet_six.save!
+
+planet_seven = Planet.new(
+  name: "Ceres",
+  object: "Asteroid",
+  orbital_period: "467",
+  radius: "469.7",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "01/01/1801",
+  discovered_by: "Giuseppe Piazzi",
+  temperature: "168",
+  description: "Ceres was the first asteroid discovered, on 1 January 1801 by Giuseppe Piazzi at Palermo Astronomical Observatory in Sicily. Originally considered a planet, it was reclassified as an asteroid in the 1850s after the discovery of dozens of other objects in similar orbits. In 2006, it was reclassified again as a dwarf planet – the only one always inside Neptune's orbit – because, at 940 km (580 mi) in diameter, it is the only asteroid large enough for its gravity to maintain it as a spheroid in hydrostatic equilibrium."
+)
+planet_seven.user = fantastic_four.sample
+url_seven = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653646777/production/istockphoto-1211739547-612x612_kx0xoh.jpg")
+planet_seven.photo.attach(io: url_seven, filename: "nes.png", content_type: "image/png")
+planet_seven.save!
+
+planet_eight = Planet.new(
+  name: "Halley's Comet",
+  object: "Comet",
+  orbital_period: "75.32",
+  radius: "n/a",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "1758",
+  discovered_by: "Edmond Halley",
+  temperature: "−103",
+  description: "Halley's Comet or Comet Halley, officially designated 1P/Halley,[2] is a short-period comet visible from Earth every 75–76 years. Halley is the only known short-period comet that is regularly visible to the naked eye from Earth, and thus the only naked-eye comet that can appear twice in a human lifetime. Halley last appeared in the inner parts of the Solar System in 1986 and will next appear in mid-2061."
+)
+planet_eight.user = fantastic_four.sample
+url_eight = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653647153/production/Lspn_comet_halley_jxqprm.jpg")
+planet_eight.photo.attach(io: url_eight, filename: "nes.png", content_type: "image/png")
+planet_eight.save!
+
+planet_nine = Planet.new(
+  name: "Comet Hyakutake",
+  object: "Comet",
+  orbital_period: "17,000",
+  radius: "n/a",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "31/01/1996",
+  discovered_by: "Yuji Hyakutake",
+  temperature: "−103",
+  description: "Comet Hyakutake is a comet, discovered on 31 January 1996, that passed very close to Earth in March of that year. It was dubbed the Great Comet of 1996; its passage near the Earth was one of the closest cometary approaches of the previous 200 years. Hyakutake appeared very bright in the night sky and was widely seen around the world. The comet temporarily upstaged the much anticipated Comet Hale–Bopp, which was approaching the inner Solar System at the time."
+)
+planet_nine.user = fantastic_four.sample
+url_nine = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653647404/production/burger2_iuhznl.gif")
+planet_nine.photo.attach(io: url_nine, filename: "nes.png", content_type: "image/png")
+planet_nine.save!
+
+planet_ten = Planet.new(
+  name: "Europa",
+  object: "Moon",
+  orbital_period: "17,000",
+  radius: "1,560",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "08/01/1610",
+  discovered_by: "Galileo Galilei",
+  temperature: "−160",
+  description: "Europa is the smallest of the four Galilean moons orbiting Jupiter, and the sixth-closest to the planet of all the 80 known moons of Jupiter. It is also the sixth-largest moon in the Solar System. Europa was discovered in 1610 by Galileo Galilei[1] and was named after Europa, the Phoenician mother of King Minos of Crete and lover of Zeus (the Greek equivalent of the Roman god Jupiter)."
+)
+planet_ten.user = fantastic_four.sample
+url_ten = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653648238/production/download_1_prsdre.jpg")
+planet_ten.photo.attach(io: url_ten, filename: "nes.png", content_type: "image/png")
+planet_ten.save!
+
+planet_eleven = Planet.new(
+  name: "Kepler-10b",
+  object: "Planet",
+  orbital_period: "90",
+  radius: "9,365",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "10/01/2011",
+  discovered_by: "Batalha et al.",
+  temperature: "1,560",
+  description: "Kepler-10b is the first confirmed terrestrial planet to have been discovered outside the Solar System by the Kepler Space Telescope. Discovered after several months of data collection during the course of the NASA-directed Kepler Mission, which aims to discover Earth-like planets crossing in front of their host stars, the planet's discovery was announced on January 10, 2011. Kepler-10b has a mass of 3.72±0.42 Earth masses and a radius of 1.47 Earth radii. However, it lies extremely close to its star, Kepler-10, and as a result is too hot to support life as we know it. Its existence was confirmed using measurements from the W.M. Keck Observatory in Hawaii."
+)
+planet_eleven.user = fantastic_four.sample
+url_eleven = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653648576/production/Kepler10b_artist_nbpfyx.jpg")
+planet_eleven.photo.attach(io: url_eleven, filename: "nes.png", content_type: "image/png")
+planet_eleven.save!
+
+planet_twelve = Planet.new(
+  name: "Gliese 504 b",
+  object: "Planet",
+  orbital_period: "1,332",
+  radius: "0.96±0.07",
+  moons: "None",
+  price_per_day: rand(100..300),
+  discovery_date: "2013",
+  discovered_by: "Kuzuhara et al.",
+  temperature: "271",
+  description: "Named GJ 504b, the planet is made of pink gas. It's similar to Jupiter, a giant gas planet in our own solar system. But GJ 504b is four times more massive. At 460°F, it's the temperature of a hot oven, and it's the planet's intense heat that causes it to glow."
+)
+planet_twelve.user = fantastic_four.sample
+url_twelve = URI.open("https://res.cloudinary.com/dsc1uchot/image/upload/v1653649043/production/0A4kLp5izHLzpL0pPbILGiTgez58W0ZJs_DtDFcKnZI_xtypcl.webp")
+planet_twelve.photo.attach(io: url_twelve, filename: "nes.png", content_type: "image/png")
+planet_twelve.save!
