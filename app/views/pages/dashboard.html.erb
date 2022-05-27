@@ -52,7 +52,7 @@
               <div class="card-product-infos">
                 <h2> <%= my_booking.planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
                 <p> Status: <%=my_booking.status  %> </p>
-                <p class="rating"><i class="fa fa-star checked"></i></i> 4.5</p>
+                <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_booking.planet.rating %></p>
                 <div class="d-flex justify-content-around">
                   <%= link_to "accept", accept_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
                   <%= link_to "deny", decline_booking_path(my_booking), class:"btn-delete-planet", data: { turbo_method: :patch}%>
@@ -84,7 +84,7 @@
                 <div class="card-product-infos">
                   <h2> <%= my_booking.planet.name%></h2>
                   <p> Status: <%=my_booking.status  %> </p>
-                  <p class="rating"><i class="fa fa-star checked"></i></i></i> 4.5</p>
+                  <p class="rating"><i class="fa fa-star checked"></i></i></i> <%= my_booking.planet.rating %></p>
                   <%= link_to "deny", decline_booking_path(my_booking),class:"btn-delete-planet", data: { turbo_method: :patch}%>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                 <div class="card-square-infos w-75">
                 <div class="d-flex justify-content-between">
                   <h2> <%= my_planet.name %></h2> <!-- LINK TO MY SHOW PLANET -->
-                  <p class="rating"><i class="fa fa-star checked"></i></i> 4.5</p>
+                  <p class="rating"><i class="fa fa-star checked"></i></i> <%= my_planet.rating %></p>
                 </div>
                 <%= link_to "delete", planet_path(my_planet), class:"btn-delete-planet", data: { turbo_method: :delete}%>
                 </div>

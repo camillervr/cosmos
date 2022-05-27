@@ -17,7 +17,6 @@
         <h3>About this <%= @planet.object %></h3>
         <hr>
         <%= @planet.description %>
-        <p>This planet was discovered on <%= @planet.discovery_date %> by <%= @planet.discovered_by %> .</p>
       </div>
 
       <div class="planet-info-tech">
@@ -68,7 +67,7 @@
         <p><strong><%= @planet.price_per_day %> €</strong> / day</p>
 
         <div class="planet-resa-price-rating d-flex justify-content-between">
-          <p><i class="fa fa-star checked"></i> 4.5</p>
+          <p><i class="fa fa-star checked"></i> <%= @planet.rating %></p>
 
         </div>
 
