@@ -1,5 +1,9 @@
 <div class="planet-show container">
-  <h1><%= @planet.name %></h1>
+
+  <div class="d-flex justify-content-between">
+    <h1><%= @planet.name %></h1>
+    <%= link_to "Back to all planets", planets_path, id: "simple-link" %>
+  </div>
 
   <div class="d-flex">
 
