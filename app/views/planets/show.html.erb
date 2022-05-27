@@ -37,14 +37,11 @@
         <% if !@current_user_booking.nil? %>
           <h3>Reviews</h3>
           <hr>
-          <% if @planet.bookings.empty? %>
-            <p>Be the first to review this <%= @planet.object %>!</p>
-          <% end %>
+            <% if @planet.bookings.map(&:reviews).empty? %>
+                <p>Be the first to review this <%= @planet.object %>!</p>
+            <% else %>
           <% @planet.bookings.each do |booking| %>
             <h4><%= pluralize booking.reviews.size, "review" %></h4>
-            <% if booking.reviews.empty? %>
-              <p>Be the first to review this <%= @planet.object %>!</p>
-            <% else %>
               <p><% booking.reviews.each do |review| %></p>
                 <p><i class="fa fa-star checked"></i>  <%= review.rating %> - <%= review.content %></p>
               <% end %>
