@@ -31,25 +31,23 @@
       </div>
 
       <div class="planet-info-reviews">
+
         <h3>Reviews</h3>
         <hr>
 
-        <!-- <h2><%= pluralize @booking.reviews.size, "review" %></h2>
-        <% if @booking.reviews.blank? %>
+        <% if @planet.bookings.empty? %>
           <p>Be the first to review this <%= @planet.object %>!</p>
-        <% else %>
-          <% @booking.reviews.each do |review| %>
-            <p><%= review.content %></p>
-          <% end %>
-        <% end %> -->
-
-
-          <% @planet.bookings.each do |booking| %>
-            <p><%= booking.reviews.each do |review| %></p>
-              <%= review.content %>
+        <% end %>
+        <% @planet.bookings.each do |booking| %>
+            <h2><%= pluralize booking.reviews.size, "review" %></h2>
+            <% if booking.reviews.empty? %>
+              <p>Be the first to review this <%= @planet.object %>!</p>
+            <% else %>
+              <p><% booking.reviews.each do |review| %></p>
+                <%= review.content %>
+              <% end %>
             <% end %>
-          <% end %>
-
+        <% end %>
 
         <div class="review-form">
           <% if !@current_user_booking.nil? %>
